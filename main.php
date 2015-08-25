@@ -18,9 +18,9 @@ use Parse\ParseAnalytics;
 use Parse\ParseFile;
 use Parse\ParseCloud;
 
-$app_id = 'mMV2mMSWh5cBfLYH3ZspWLtKTwzqTG1PoNib5Nqx';
-$rest_key = '4eQ6uUlBLJkkxMeebbHeO9tJue0LwT2rUmgkPJsz';
-$master_key = 'byVk96f4YBLhvUARm5Ol4qvMSp3PKew7O5rNPbaf';
+$app_id = 'VHq08qiCwnbnOCN83IwQ006BTr1Hfh6S6BrerZFj';
+$rest_key = 'buhL94EPQ9EyiBadNQekpyf9QcLkICyEDaeGTLy2';
+$master_key = 'Bt5uOGz2NxDHJZ3oqD7e0EQ23hTSKCdoZorzYAYf';
 
 ParseClient::initialize( $app_id, $rest_key, $master_key );
 
