@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 require 'vendor/autoload.php';
+require './sync.php';
 
 use Parse\ParseClient;
 use Parse\ParseObject;
@@ -22,3 +23,9 @@ $rest_key = '4eQ6uUlBLJkkxMeebbHeO9tJue0LwT2rUmgkPJsz';
 $master_key = 'byVk96f4YBLhvUARm5Ol4qvMSp3PKew7O5rNPbaf';
 
 ParseClient::initialize( $app_id, $rest_key, $master_key );
+
+function	main() {
+
+
+
+}
