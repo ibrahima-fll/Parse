@@ -1,13 +1,13 @@
 <?php
 
 function getUser($objectId){
-    // on recupère le user en fonction de son id
-    $query = new ParseUser::query("User");
-    $query->equalTo("objectId", $objectId);
-    $result = $query->first();
+	// on recupère le user en fonction de son id
+	$query = new ParseUser::query("User");
+	$query->equalTo("objectId", $objectId);
+	$result = $query->first();
 
-    // on renvoit l'utilisateur courant.
-    return $result;
+	// on renvoit l'utilisateur courant.
+	return $result;
 }
 
 function deleteUnfinishedSyncsForUser($user) {
@@ -55,7 +55,7 @@ function	start($user, $provider) {
 	$sync->set('startedAt', new Date());
 	$sync->set('status', 'inprogress');
 
-	return $sync->save();
+	$sync->save();
 }
 
 function	complete($sync, $done_count) {
@@ -63,12 +63,12 @@ function	complete($sync, $done_count) {
 	$sync->set('doneCount', $done_count);
 	$sync->set('status', 'complete');
 
-	return $sync->save();
+	$sync->save();
 }
 
 function	fail($sync) {
 	$sync->set('endedAt', new Date());
 	$sync->set('status', 'failed');
 
-	return $sync->save();
+	$sync->save();
 }
