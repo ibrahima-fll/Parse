@@ -14,11 +14,7 @@ function deleteUnfinishedSyncsForUser($user) {
 
     // on récupère toutes les synchro non terminées
     $query = new ParseQuery("ProviderSync");
-    $query->equalTo('user', array(
-        "__type" => "Pointer",
-        "className" => "_User",
-        "objectId" => $user->getObjectId()
-    ));
+    $query->equalTo('user', $user);
     $query->equalTo('status', 'inprogress');
     $query->descending('startingAt');
 
