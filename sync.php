@@ -1,7 +1,5 @@
 <?php
 
-require 'main.php';
-
 function	getLastCompletedSyncForUser($user) {
 	$query = new ParseQuery("ProviderSync");
 	$query->equalTo('user', $user);
