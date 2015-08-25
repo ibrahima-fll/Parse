@@ -12,26 +12,27 @@ function getUser($objectId){
 
 function deleteUnfinishedSyncsForUser($user) {
 
-    // on récupère toutes les synchro non terminées
-    $query = new ParseQuery("ProviderSync");
-    $query->equalTo('user', $user);
-    $query->equalTo('status', 'inprogress');
-    $query->descending('startingAt');
+	// on récupère toutes les synchro non terminées
+	$query = new ParseQuery("ProviderSync");
+	$query->equalTo('user', $user);
+	$query->equalTo('status', 'inprogress');
+	$query->descending('startingAt');
 
-    //on retourne la liste des synchro de l'utilisateur non terminées
-    $result = $query->find();
+	//on retourne la liste des synchro de l'utilisateur non terminées
+	$result = $query->find();
 
-    // on récupère tous les entrainements sauvegardées dont la synchro n'est pas terminées
-    $queryWorkouts = new ParseQuery('Workouts');
-    $queryWorkouts->containedIn('sync', $result);
+	// on récupère tous les entrainements sauvegardées dont la synchro n'est pas terminées
+	$query_workouts = new ParseQuery('Workouts');
+	$query_workouts->containedIn('sync', $result);
 
-    //on renvoit les workouts
-    $workouts = $queryWorkouts->find();
+	//on renvoit les workouts
+	$workouts = $query_workouts->find();
 
-    //on detruit les objets
-    $result->destroyAll();
-    $workouts->destroyAll();
-    
+	//on detruit les objets
+	foreach ($result as $value) {
+		fail($value);
+	}
+	$workouts->destroyAll();
 
 }
 
